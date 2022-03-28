@@ -37,7 +37,7 @@ class Node:
             else:
                 break
         
-        if reservationID in output:                             ########################
+        if reservationID in output:
             output[reservationID]+=","+",".join(seatsAssigned)
         else:
             output[reservationID]=",".join(seatsAssigned)
@@ -103,7 +103,7 @@ class SeatAssignment:
 
         else:
             logging.info("Adding new root row to the List")
-            name = chr(self.column + 64)                    ################
+            name = chr(self.column + 64)           #generate the row name
             self.root = Node(name,seats,None,seatRequested,reservationID)
             self.column -=1
             self.lastInsert = self.root
@@ -119,7 +119,7 @@ class SeatAssignment:
         elif seatRequested > currentNode.emptySeats: #if there no seat avaliable in the current node(row), lookup to find best place to add new node
 
             if currentNode.subs[1]:
-                return self.insert(currentNode.subs[1],seatRequested,column,reservationID) ###########
+                return self.insert(currentNode.subs[1],seatRequested,column,reservationID)
 
             elif currentNode.subs[1] == None and column > 0: #adding a new node (row) to the list
 
@@ -186,7 +186,7 @@ class SeatAssignment:
 
                 logging.debug('current node name:{} empty seats:{} current seat requested: {}'.format(currentNode.name,str(currentNode.seatsEmpty),str(seatsRequested)))
                 currentNode.reserve_seat(currentNode.emptySeats,reservationID)
-                seatsRequested -= currentNode.emptySeats        ###########
+                seatsRequested -= currentNode.emptySeats
                 currentNode.emptySeats = currentNode.check_seat()
                 currentNode = currentNode.subs[1]
 
