@@ -15,9 +15,9 @@ output={}
 
 class Node:
 
-    def __init__(self,username,seats,currentNode,seatRequested,reservationID) -> None:
+    def __init__(self,rowname,seats,currentNode,seatRequested,reservationID) -> None:
 
-        self.name = username
+        self.name = rowname
         self.seatsOccupied = [0]*seats
         self.parent = currentNode
         self.isFull = False
